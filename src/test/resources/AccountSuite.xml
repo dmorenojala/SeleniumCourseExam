@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AccountSuite" verbose="1" >
+    <test name="PivotalRegression">
+        <classes>
+            <class name="com.jalasoft.pivotal.ui.AccountTest"/>
+        </classes>
+    </test>
+</suite>
