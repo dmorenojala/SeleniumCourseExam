@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertTrue;
 
 
 /**
@@ -49,7 +50,7 @@ public class AccountTest {
 
         CommonNavigator.goToAccountsPage();
         List<String> accountsNames = accountsPage.GetAccountsNames();
-        assertEquals(accountsNames.contains(this.accountName.toUpperCase()), true);
+        assertTrue(accountsNames.contains(this.accountName.toUpperCase()));
     }
 
     /**
