@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * AccountsPage
+ * AccountsPage.
  */
 public class AccountsPage extends BasePage {
 
@@ -34,7 +34,7 @@ public class AccountsPage extends BasePage {
      * @param accountName the account name
      * @return AccountHomePage
      */
-    public AccountHomePage CreateNewAccount(String accountName){
+    public AccountHomePage createNewAccount(String accountName) {
         CommonActions.clickElement(this.createAccountLink);
 
         CommonActions.sendKeys(this.accountNameField, accountName);
@@ -46,18 +46,19 @@ public class AccountsPage extends BasePage {
     /**
      * @return the accounts names
      */
-    public List<String> GetAccountsNames(){
+    public List<String> getAccountsNames() {
         List<WebElement> accountElements = DriverManager.getInstance().getDriverWait()
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(this.accountsNameSelector));
 
-        return accountElements.stream().map(webElement -> CommonActions.getText(webElement)).collect(Collectors.toList());
+        return accountElements.stream().map(webElement -> CommonActions.getText(webElement))
+                .collect(Collectors.toList());
     }
 
     /**
      * @param accountName The account name
      * @return AccountHomePage
      */
-    public AccountHomePage goToAccountHomePage(String accountName){
+    public AccountHomePage goToAccountHomePage(String accountName) {
         By accountSelector = By.xpath(
                 String.format("//div[text()='%s']/parent::div/parent::h3/following-sibling::a[2]", accountName));
 

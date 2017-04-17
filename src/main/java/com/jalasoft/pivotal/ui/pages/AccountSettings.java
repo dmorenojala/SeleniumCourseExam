@@ -8,7 +8,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * AccountSettings
+ * AccountSettings.
  */
 public class AccountSettings extends BasePage {
 
@@ -17,9 +17,9 @@ public class AccountSettings extends BasePage {
     private WebElement deleteAccountLink;
 
     /**
-     * deletes the current account
+     * deletes the current account.
      */
-    public void deleteAccount(){
+    public void deleteAccount() {
         CommonActions.clickElement(this.deleteAccountLink);
         Alert alert = DriverManager.getInstance().getDriver().switchTo().alert();
         alert.accept();

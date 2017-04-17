@@ -15,7 +15,7 @@ public abstract class BasePage {
     protected final WebDriverWait wait;
 
     /**
-     * Base page
+     * Base page.
      */
     protected BasePage() {
         driver = DriverManager.getInstance().getDriver();

@@ -5,9 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-
 /**
- * Environment parameters provider
+ * Environment parameters provider.
  */
 public final class Environment {
 
@@ -32,7 +31,7 @@ public final class Environment {
     private Properties properties;
 
     /**
-     * Constructor
+     * Constructor.
      */
     private Environment() {
         try (FileInputStream fileStream = new FileInputStream(CONFIG)) {

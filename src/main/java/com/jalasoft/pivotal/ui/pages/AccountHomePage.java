@@ -9,10 +9,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- *  AccountHomePage
+ *  AccountHomePage.
  */
 public class AccountHomePage extends BasePage {
-    private final String tabSelectorTemplate = "ul.buttons a[href*='%s']";
+    private static final String TAB_SELECTOR_TEMPLATE = "ul.buttons a[href*='%s']";
 
     @FindBy(css = "h2.account_name span")
     @CacheLookup
@@ -21,14 +21,14 @@ public class AccountHomePage extends BasePage {
     /**
      * @return account name
      */
-    public String getAccountName(){
+    public String getAccountName() {
         return CommonActions.getText(this.accountNameHeader);
     }
 
     /**
      * @return AccountSettings
      */
-    public AccountSettings clickOnSettings(){
+    public AccountSettings clickOnSettings() {
         this.clickOnTab("settings");
 
         return new AccountSettings();
@@ -37,8 +37,8 @@ public class AccountHomePage extends BasePage {
     /**
      * @param tabName tabName
      */
-    private void clickOnTab(String tabName){
-        By tabSelector = By.cssSelector(String.format(tabSelectorTemplate, tabName));
+    private void clickOnTab(String tabName) {
+        By tabSelector = By.cssSelector(String.format(TAB_SELECTOR_TEMPLATE, tabName));
         WebElement tabElement = DriverManager.getInstance().getDriverWait()
                 .until(ExpectedConditions.visibilityOfElementLocated(tabSelector));
 

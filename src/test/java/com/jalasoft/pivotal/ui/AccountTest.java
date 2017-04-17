@@ -2,7 +2,10 @@ package com.jalasoft.pivotal.ui;
 
 import com.jalasoft.pivotal.common.Environment;
 import com.jalasoft.pivotal.ui.common.CommonNavigator;
-import com.jalasoft.pivotal.ui.pages.*;
+import com.jalasoft.pivotal.ui.pages.AccountHomePage;
+import com.jalasoft.pivotal.ui.pages.AccountsPage;
+import com.jalasoft.pivotal.ui.pages.AccountSettings;
+import com.jalasoft.pivotal.ui.pages.HomePage;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -20,8 +23,6 @@ import static org.testng.AssertJUnit.assertTrue;
 public class AccountTest {
     private final String accountName = "TestAccount-" + UUID.randomUUID();
 
-    private DashboardPage dashboard;
-
     /**
      * BeforeClass.
      */
@@ -30,7 +31,7 @@ public class AccountTest {
         // Given
         final Environment environment = Environment.getInstance();
 
-        this.dashboard = HomePage.signInAs(environment.getUser(), environment.getPassword());
+        HomePage.signInAs(environment.getUser(), environment.getPassword());
     }
 
     /**
@@ -43,13 +44,13 @@ public class AccountTest {
         AccountsPage accountsPage = new AccountsPage();
 
 
-        AccountHomePage accountHome = accountsPage.CreateNewAccount(this.accountName);
+        AccountHomePage accountHome = accountsPage.createNewAccount(this.accountName);
 
         // Then
         assertEquals(accountHome.getAccountName(), this.accountName);
 
         CommonNavigator.goToAccountsPage();
-        List<String> accountsNames = accountsPage.GetAccountsNames();
+        List<String> accountsNames = accountsPage.getAccountsNames();
         assertTrue(accountsNames.contains(this.accountName.toUpperCase()));
     }
 

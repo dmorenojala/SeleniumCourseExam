@@ -6,7 +6,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Home page
+ * Home page.
  */
 public class HomePage extends BasePage {
     @FindBy(css = "div.header__lg > a[href='/signin']")
